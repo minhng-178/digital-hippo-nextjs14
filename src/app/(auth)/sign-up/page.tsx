@@ -14,7 +14,7 @@ import { Button, buttonVariants } from '@/components/ui/button';
 import {
   AuthCredentialsValidator,
   TAuthCredentialsValidator,
-} from '@/lib/validators/account-credentials-validators';
+} from '@/lib/validators/account-credentials-validator';
 import { trpc } from '@/trpc/client';
 
 const Page = () => {
@@ -26,8 +26,10 @@ const Page = () => {
     resolver: zodResolver(AuthCredentialsValidator),
   });
 
+  const { mutate } = trpc.auth.createPayloadUser.useMutation({});
+
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
-    //TODO logic authentication
+    mutate({ email, password });
   };
 
   return (
@@ -65,6 +67,7 @@ const Page = () => {
                   <Label htmlFor="password">Password</Label>
                   <Input
                     {...register('password')}
+                    type="password"
                     className={cn({
                       'focus-visible:ring-red-500': errors.password,
                     })}
