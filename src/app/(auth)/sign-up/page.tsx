@@ -15,6 +15,7 @@ import {
   AuthCredentialsValidator,
   TAuthCredentialsValidator,
 } from '@/lib/validators/account-credentials-validators';
+import { trpc } from '@/trpc/client';
 
 const Page = () => {
   const {
@@ -57,7 +58,7 @@ const Page = () => {
                     className={cn({
                       'focus-visible:ring-red-500': errors.email,
                     })}
-                    placeholder="you@exmaple.com"
+                    placeholder="you@example.com"
                   />
                 </div>
                 <div className="grid gap-1 py-2">
