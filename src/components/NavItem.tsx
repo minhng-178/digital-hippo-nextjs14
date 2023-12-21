@@ -6,6 +6,7 @@ import { ChevronDown } from 'lucide-react';
 
 import { PRODUCT_CATEGORIES } from '@/config';
 import { cn } from '@/lib/utils';
+
 import { Button } from './ui/button';
 
 type Category = (typeof PRODUCT_CATEGORIES)[number];

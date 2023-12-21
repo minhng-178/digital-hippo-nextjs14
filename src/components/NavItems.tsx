@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { PRODUCT_CATEGORIES } from '@/config';
 import { useOnClickOutside } from '@/hooks/use-on-click-outside';
+
 import NavItem from './NavItem';
 
 const NavItems = () => {
